@@ -11,7 +11,7 @@ services:
       - "traefik.enable=false"
     volumes:
       - "syncthing-discosrv:/stdiscosrv"
-    command: -cert /stdiscosrv/cert.pemi -db-dir /stdiscosrv -key /stdiscosrv/key.pem -listen ":22067" -provided-by changeMe  
+    command: -cert /stdiscosrv/cert.pem -db-dir /stdiscosrv -key /stdiscosrv/key.pem
 
 volumes:
   syncthing-discosrv:
