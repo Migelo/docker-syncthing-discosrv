@@ -19,15 +19,15 @@ RUN apk add --no-cache ca-certificates curl && \
 FROM alpine
 
 RUN apk add --no-cache ca-certificates
-COPY --from=builder /go/src/github.com/syncthing/syncthing/strelaysrv /usr/bin/strelaysrv
+COPY --from=builder /go/src/github.com/syncthing/syncthing/stdiscosrv /usr/bin/stdiscosrv
 
-# Run unprivileged out of /relaysrv
-RUN mkdir /relaysrv && chown nobody:nobody /relaysrv
-VOLUME /relaysrv
+# Run unprivileged out of /stdiscosrv
+RUN mkdir /stdiscosrv && chown nobody:nobody /stdiscosrv
+VOLUME /stdiscosrv
 USER nobody
-WORKDIR /relaysrv
+WORKDIR /stdiscosrv
 
-EXPOSE 22067 22070
+EXPOSE 8443 19200
 
-ENTRYPOINT ["/usr/bin/strelaysrv"]
+ENTRYPOINT ["/usr/bin/stdiscosrv"]
 CMD [""]
