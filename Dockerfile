@@ -13,7 +13,7 @@ RUN apk add --no-cache ca-certificates curl && \
     curl -L https://github.com/syncthing/syncthing/releases/download/v$PKGVER/syncthing-source-v${PKGVER}.tar.gz | tar xzf - && \
     cd syncthing && \
     export GOPATH="$SRCDIR" GOROOT_FINAL="/usr/bin" && \
-    go run build.go -no-upgrade -version v${PKGVER} build discosrv
+    go run build.go -no-upgrade -version v${PKGVER} build stdiscosrv
 
 #Building thin container
 FROM alpine
