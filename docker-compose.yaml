@@ -1,0 +1,20 @@
+services:
+  syncthing-relay:
+    image: migel0/syncthing-discosrv:latest
+    restart: unless-stopped
+    ports:
+      - "8443:8443/tcp"
+      - "19200:19200/tcp"
+    networks:
+      - local
+    labels:
+      - "traefik.enable=false"
+    volumes:
+      - "syncthing-discosrv:/stdiscosrv"
+    command: -cert /stdiscosrv/cert.pemi -db-dir /stdiscosrv -key /stdiscosrv/key.pem -listen ":22067" -provided-by changeMe  
+
+volumes:
+  syncthing-discosrv:
+
+networks:
+  local:
