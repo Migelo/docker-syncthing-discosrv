@@ -32,10 +32,11 @@ For those using private discosrvs, it may be a good idea to use persistent stora
 docker volume create syncthing-discosrv
 ```
 
-Then run the container mapping the `/discosrvsrv` directory into the volume:
+Then run the container mapping the `/discosrv` directory into the volume:
 
 ```bash
-docker run -p 22067:22067 -p 22070:22070 --mount source=syncthing-discosrv,target=/discosrv -d migel0/syncthing-discosrv```
+docker run -p 22067:22067 -p 22070:22070 --mount source=syncthing-discosrv,target=/discosrv -d migel0/syncthing-discosrv
+```
 
 ## Automatically restarting the container on reboot
 
